@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Show and Hide Example</title>
+<script>
+function hideParagraph() {
+    document.getElementById("myParagraph").style.display = "none";
+}
+
+function showParagraph() {
+    document.getElementById("myParagraph").style.display = "block";
+}
+</script>
+</head>
+<body>
+<p id="myParagraph">This is the paragraph to show and hide.</p>
+<button onclick="hideParagraph()">Hide</button>
+<button onclick="showParagraph()">Show</button>
+</body>
+</html>

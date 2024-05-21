@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work is My Pride</title>
+    <link rel="stylesheet" href="CSS FOR PERFECTIONIST.css">
+</head>
+<body>
+    <h1><i class="fas fa-laptop-code"></i> MUHAMMAD SAIF YASIR</h1>
+    <div class="sidebar">
+        <button class="slide-button" id="home-btn" onclick="showSection('Home')">Home</button>
+        <button class="slide-button" id="news-btn" onclick="showSection('News')">News</button>
+        <button class="slide-button" id="contact-btn" onclick="showSection('Contact')">Contact</button>
+        <button class="slide-button" id="about-btn" onclick="showSection('About')">About</button>
+    </div>
+    
+    <div class="main-content" id="main">
+        <section id="Home" style="display: none;">
+            <h2>Welcome to Our Website</h2>
+            <p>Welcome to our website! We are dedicated to providing top-notch solutions for all your needs.</p>
+            <p>Our team is committed to delivering excellence in every project we undertake. Explore our services and let us help you achieve your goals.</p>
+        </section>
+
+        <section id="News" style="display: none;">
+            <h2>Latest News</h2>
+            <p>Stay up-to-date with the latest news and updates from our company.</p>
+            <p>We strive to keep you informed about our latest projects, events, and achievements.</p>
+        </section>
+
+        <section id="Contact" style="display: none;">
+            <h2>Contact Us</h2>
+            <p>Feel free to contact us for any inquiries, feedback, or collaborations.</p>
+            <p>You can reach us via email, phone, or by filling out the contact form on our website.</p>
+        </section>
+
+        <section id="About" style="display: none;">
+            <h2>About Us</h2>
+            <p>Learn more about our company and our mission to deliver exceptional solutions.</p>
+            <p>With years of experience and a passion for innovation, we strive to exceed our clients' expectations.</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 MTR <sub>THE NAME OF QUALITY</sub>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.main-content section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

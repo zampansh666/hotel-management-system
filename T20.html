@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Current Day</title>
+</head>
+<body>
+    <div id="day"></div> <!-- Placeholder for the day of the week -->
+
+    <script>
+        // Create a new Date object
+        var now = new Date();
+        // Get the current day of the week (0-6)
+        var day = now.getDay();
+
+        // Variable to store the name of the day
+        var dayName;
+
+        // Use switch statement to determine the day name
+        switch (day) {
+            case 0:
+                dayName = 'Sunday';
+                break;
+            case 1:
+                dayName = 'Monday';
+                break;
+            case 2:
+                dayName = 'Tuesday';
+                break;
+            case 3:
+                dayName = 'Wednesday';
+                break;
+            case 4:
+                dayName = 'Thursday';
+                break;
+            case 5:
+                dayName = 'Friday';
+                break;
+            case 6:
+                dayName = 'Saturday';
+                break;
+        }
+
+        // Set the content of the div to display the day of the week
+        document.getElementById('day').innerHTML = "Today is " + dayName;
+    </script>
+</body>
+</html>

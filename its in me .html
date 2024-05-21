@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'M PERFECT</title>
+    <style>
+        body {
+            background-image: url('water.png'); /* Fixed the background image path */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            margin: 30px; /* Adjusted margin */
+            padding: 60px; /* Adjusted padding */
+            flex-grow: 1;
+            position: relative;
+            /* Removed margin-left: 2; */
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateX(-200px);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar h2 {
+            margin: 20px 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            width: 100%;
+        }
+
+        .sidebar ul li button {
+            background: none;
+            border: none;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sidebar ul li button:hover {
+            background-color: #575757;
+        }
+
+        .home-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .home-buttons button {
+            background-color: blue;
+            border: none;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            display: block;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-buttons button:hover {
+            background-color: #575757;
+        }
+
+        .button-details {
+            font-size: 14px;
+            color: aliceblue; /* Added color for better readability */
+            text-align: center;
+        }
+
+        section {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h1 {
+            margin-top: 0;
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-button.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .rotate-in {
+            opacity: 0;
+            transform: rotateY(90deg);
+            animation: rotateIn 2s forwards;
+        }
+
+        .fade-in-delayed {
+            opacity: 0;
+            animation: fadeIn 2s 2s forwards;
+        }
+
+        @keyframes rotateIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateY(0);
+            }
+
+            .content {
+                margin-left: 0;
+                margin-top: 60px;
+                flex-grow: 1;
+            }
+
+            .menu-button {
+                top: 10px;
+                left: 10px;
+                padding: 5px 10px;
+            }
+        }
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            .sidebar ul li button {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .menu-button {
+                top: 5px;
+                left: 5px;
+                padding: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-button" onclick="toggleMenu()">Menu</button>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><button onclick="showSection('home')">Home</button></li>
+            <li><button onclick="showSection('about')">About</button></li>
+            <li><button onclick="showSection('contact')">Contact</button></li>
+            <li><button onclick="showSection('customer-care')">Customer Care</button></li>
+            <li><button onclick="showSection('visitor')">Visitor</button></li>
+            <li><button onclick="showSection('worker')">Worker</button></li>
+            <li><button onclick="showSection('business')">Business</button></li>
+            <li><button onclick="showSection('educational')">Educational</button></li>
+            <li><button onclick="showSection('other')">Other</button></li>
+        </ul>
+    </div>
+    <div class="content" onclick="closeMenu(event)">
+        <section id="home" class="active" style="align-self: self-start;">
+            <div class="home-buttons">
+                <button onclick="showSection('visitor')">Visitor</button>
+                <button onclick="showSection('worker')">Worker</button>
+                <button onclick="showSection('business')">Business</button>
+                <button onclick="showSection('educational')">Educational</button>
+                <button onclick="showSection('other')">Other</button>
+            </div>
+        </section>
+        <section id="about">
+            <h1>About</h1>
+            <p>About content goes here.</p>
+        </section>
+        <section id="contact">
+            <h1>Contact</h1>
+            <p style="text-align: center; color: aliceblue;">For any complain please contact from below <br> Phone :  +923041046996 <br> Telephone : 03041046996</p>
+        </section>
+        <section id="customer-care">
+            <h1>Customer Care</h1>
+            <p>Customer Care content goes here.</p>
+        </section>
+        <section id="visitor">
+            <h1>Visitor</h1>
+            <p style="text-align: center; color: aliceblue;">For any complain please contact from below <br> Phone :  +923041046996 <br> Telephone : 03041046996</p>
+        </section>
+        <section id="worker">
+            <h1>Worker</h1>
+            <p>Details about workers go here.</p>
+        </section>
+        <section id="business">
+            <h1>Business</h1>
+            <p>Details about business go here.</p>
+        </section>
+        <section id="educational">
+            <h1>Educational</h1>
+            <p>Details about educational topics go here.</p>
+        </section>
+        <section id="other">
+            <h1>Other</h1>
+            <p>Details about other topics go here.</p>
+        </section>
+    </div>
+    <footer>
+        &REG; 2024 MTR The Name Of Quality. All Rights are Reserved
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            closeMenu();
+        }
+
+        function toggleMenu() {
+            const sidebar = document.querySelector('.sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            sidebar.classList.toggle('open');
+            menuButton.classList.toggle('hidden');
+        }
+
+        function closeMenu(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+                sidebar.classList.remove('open');
+                menuButton.classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.querySelector('.sidebar');
+            const menuButton = document.querySelector('.menu-button');
+            if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+                closeMenu(event);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>

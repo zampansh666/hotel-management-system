@@ -1,0 +1,48 @@
+/* Basic reset for body margin and font */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+/* Styling the container for forms using CSS Grid */
+.forms-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between columns */
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+}
+
+.form-wrapper {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 300px; /* Maximum width for each form */
+    margin: auto; /* Centering the form within the grid cell */
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5c67f2; /* Pleasant blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4a54e1; /* Darker blue on hover */
+}

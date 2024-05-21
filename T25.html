@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide Down Content Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#slideDownButton").click(function() {
+        $("#contentToSlide").slideDown("slow");
+    });
+});
+</script>
+</head>
+<body>
+
+<button id="slideDownButton">Slide Down Content</button>
+<div id="contentToSlide" style="display:none; padding: 20px; border: 1px solid #ccc;">
+    This is the content that will slide down when the button is clicked.
+</div>
+
+</body>
+</html>

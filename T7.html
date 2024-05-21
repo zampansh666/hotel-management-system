@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Image Buttons</title>
+    <style>
+        /* Adding basic styling for the form */
+        form {
+            margin: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .image-button {
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+            cursor: pointer; /* Cursor appears as a pointer */
+            width: 100px; /* Width of the button */
+            height: 50px; /* Height of the button */
+        }
+    </style>
+</head>
+<body>
+    <form action="/submit-form" method="post">
+        <!-- Fields like name or email can be added here -->
+        <input type="text" name="name" placeholder="Enter your name">
+        <br><br>
+
+        <!-- Image submit button -->
+        <input type="image" src="n12.jpg" alt="Submit" class="image-button">
+
+        <!-- Image reset button using a standard button with background image -->
+        <button type="reset" class="image-button" style="background-image: url('n12.jpg');">
+        </button>
+    </form>
+</body>
+</html>

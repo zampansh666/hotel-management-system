@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Based on Time</title>
+</head>
+<body>
+    <!-- Placeholder for the greeting message -->
+    <div id="greeting"></div>
+
+    <script>
+        // Get the current date and time
+        var now = new Date();
+        // Extract the hour from the current time
+        var hour = now.getHours();
+
+        // Select the div element where the greeting will be displayed
+        var greetingElement = document.getElementById('greeting');
+
+        // Determine if it's morning or afternoon
+        if (hour < 12) {
+            greetingElement.innerHTML = 'Good morning';
+        } else {
+            greetingElement.innerHTML = 'Good afternoon';
+        }
+    </script>
+</body>
+</html>

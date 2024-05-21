@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Months</title>
+</head>
+<body>
+    <div id="months"></div> <!-- Placeholder for the month names -->
+
+    <script>
+        // Define an array with the names of the months
+        var months = [
+            "January", "February", "March", "April", 
+            "May", "June", "July", "August", 
+            "September", "October", "November", "December"
+        ];
+
+        // Variable to hold the concatenated string of month names
+        var monthString = "";
+
+        // Loop through the array and concatenate each month to the string
+        for (var i = 0; i < months.length; i++) {
+            monthString += months[i];
+            if (i < months.length - 1) {  // Check to avoid adding a comma after the last month
+                monthString += ", ";
+            }
+        }
+
+        // Display the string in the HTML document
+        document.getElementById('months').innerHTML = monthString;
+    </script>
+</body>
+</html>

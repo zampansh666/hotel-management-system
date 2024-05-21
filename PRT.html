@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    /* Background Animation */
+    body {
+        background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    header {
+        background: #34495e;
+        color: #fff;
+        padding: 20px 10px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        animation: slideInFromRight 1s ease-out;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: #ecf0f1;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a:focus {
+        color: #f39c12;
+    }
+
+    section {
+        padding: 20px;
+        margin: 10px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        animation: fadeInUp 1s both;
+    }
+
+    section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .portfolio-item {
+        margin: 10px 0;
+        padding: 20px;
+        border-left: 5px solid #3498db;
+        background: #ecf0f1;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .portfolio-item:hover {
+        background: #bdc3c7;
+        border-color: #2980b9;
+    }
+
+    .dropdown-content {
+        padding: 10px;
+        margin-top: 5px;
+        background-color: #bdc3c7;
+        border: 1px solid #bdc3c7;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, background-color 0.3s;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #34495e;
+        color: white;
+    }
+
+    @keyframes slideInFromRight {
+        from {
+            opacity: 0;
+            transform: translateX(50%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @media (max-width: 600px) {
+  header nav ul {
+    text-align: center;
+  }
+  header nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    form {
+        width: 80%;
+        max-width: 500px;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1><i class="fas fa-laptop-code"></i> MUHAMMAD SAIF YASIR</h1>
+    <nav>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>This section contains information about me.</p>
+</section>
+
+<section id="portfolio">
+    <h2>My Work</h2>
+    <div class="portfolio-item">
+        <h3>HARRY <sub>302</sub></h3>
+        <div class="dropdown-content">
+            Details about the project...
+        </div>
+    </div>
+    <div class="portfolio-item">
+        <h3>ANGEL<sup>431</sup></h3>
+        <div class="dropdown-content">
+            Details about the project...
+        </div>
+    </div>
+    <div class="portfolio-item">
+        <h3>HASS 93<sub>OND</sub></h3>
+        <div class="dropdown-content">
+            Details about the project...
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required><br>
+        <input type="email" placeholder="Your Email" required><br>
+        <textarea placeholder="Your Message"></textarea><br>
+        <button type="submit">Send</button><br>
+    </form>
+</section>
+
+<footer>
+    <p>© 2024 MUHAMMAD SAIF. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

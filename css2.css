@@ -1,0 +1,64 @@
+/* Reset list styles */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for the top navigation bar */
+.top-nav ul {
+    background-color: #333;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+.top-nav li {
+    display: inline; /* Display list items inline */
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.top-nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Styling for the left-side vertical navigation bar */
+#left-nav {
+    position: fixed; /* Fixed position on the left side */
+    top: 0;
+    left: 0;
+    width: 160px; /* Width of the left navigation */
+    height: 100vh; /* Full height */
+    background-color: #333;
+    color: white;
+}
+
+#left-nav ul {
+    display: block;
+}
+
+#left-nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block; /* Block display to utilize full width of the nav */
+}
+
+#left-nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Main content styling */
+.content {
+    margin-left: 160px; /* Push content to the right */
+    padding: 20px;
+}
+

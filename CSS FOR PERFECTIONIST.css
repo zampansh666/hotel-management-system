@@ -1,0 +1,55 @@
+
+header {
+    background: #34495e;
+    color: #fff;
+    padding: 20px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeInDown 1s ease-out;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 20px;
+    z-index: 1000;
+}
+
+.slide-button {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    border: none;
+    background-color: rgb(7, 7, 7);
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.slide-button:hover {
+    background-color: #f30e0e; /* Change color on hover */
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #34495e;
+    color: white;
+}
+
+
+  @media (max-width: 600px) {
+    header nav ul {
+      text-align: center;
+    }
+    header nav ul li {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  

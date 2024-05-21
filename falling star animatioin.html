@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8d</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+        canvas {
+            display: block;
+        }
+        #infoText {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: monospace;
+            white-space: nowrap; /* Keep the text on one line */
+            overflow: hidden; /* Ensures the div does not grow with text */
+            box-sizing: border-box; /* Includes padding in width calculation */
+            border-radius: 10px;
+            max-width: 90%; /* Prevents the text box from being too wide */
+            animation: slideIn 1s ease-out forwards;
+        }
+        @keyframes slideIn {
+            from {
+                bottom: -100px;
+            }
+            to {
+                bottom: 10px;
+            }
+        }
+        #mainImage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: auto;
+            opacity: 0;
+            animation: fadeInOut 10s infinite;
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        #mainHeading {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            font-size: 28px;
+            font-family: 'Arial', sans-serif;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mainHeading">Hy! This is Saif From ALS</h1>
+    <canvas id="starCanvas"></canvas>
+    <div id="infoText"></div>
+    <img id="mainImage" src="nhg.png" alt="Descriptive Text">
+    <!-- JavaScript remains unchanged -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('starCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const stars = [];
+            const starCount = 400;
+            let speedFactor = 30; // Initial speed
+            let starColor = 'white'; // Initial star color
+            const infoText = document.getElementById('infoText');
+            const messages = ["Welcome to our web!", "I AM SAIF", "A PROFESSIONAL WEBSITE DEVELOPER", "THANKS FOR VISITING US"];
+            let messageIndex = 0;
+
+            class Star {
+                constructor() {
+                    this.reset();
+                    this.z = Math.random() * canvas.width;
+                }
+
+                reset() {
+                    this.x = (Math.random() - 0.5) * canvas.width;
+                    this.y = (Math.random() - 0.5) * canvas.height;
+                    this.z = canvas.width;
+                    this.pz = this.z;
+                }
+
+                update() {
+                    this.pz = this.z;
+                    this.z -= speedFactor;
+                    if (this.z < 1) {
+                        this.reset();
+                    }
+                }
+
+                draw() {
+                    let x = (this.x / this.z) * canvas.width + canvas.width / 2;
+                    let y = (this.y / this.z) * canvas.height + canvas.height / 2;
+                    let r = (canvas.width - this.z) / canvas.width * 2;
+                    let px = (this.x / this.pz) * canvas.width + canvas.width / 2;
+                    let py = (this.y / this.pz) * canvas.height + canvas.height / 2;
+
+                    ctx.beginPath();
+                    ctx.fillStyle = starColor;
+                    ctx.arc(x, y, r, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.moveTo(px, py);
+                    ctx.lineTo(x, y);
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${r})`;
+                    ctx.lineWidth = r;
+                    ctx.stroke();
+                }
+            }
+
+            function initStars() {
+                for (let i = 0; i < starCount; i++) {
+                    stars.push(new Star());
+                }
+            }
+
+            function animate() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                stars.forEach(star => {
+                    star.update();
+                    star.draw();
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            function typewriteText(text) {
+                let i = 0;
+                infoText.textContent = '';
+                function type() {
+                    if (i < text.length) {
+                        infoText.textContent += text[i];
+                        i++;
+                        setTimeout(type, 150); // Delay before next character
+                    } else if (messageIndex < messages.length) {
+                        setTimeout(() => { // Wait before starting next message
+                            typewriteText(messages[messageIndex++]);
+                        }, 2000);
+                    } else {
+                        messageIndex = 0;
+                        setTimeout(() => { // Restart from first message
+                            typewriteText(messages[messageIndex++]);
+                        }, 2000);
+                    }
+                }
+                type();
+            }
+
+            canvas.addEventListener('mouseover', function() {
+                speedFactor = 60;
+            });
+
+            canvas.addEventListener('mouseout', function() {
+                speedFactor = 30;
+                starColor = 'white';
+            });
+
+            canvas.addEventListener('mousemove', function(event) {
+                const mouseX = event.clientX;
+                const mouseY = event.clientY;
+
+                const red = Math.floor((mouseX / canvas.width) * 255);
+                const green = Math.floor((mouseY / canvas.height) * 255);
+                const blue = 255 - red;
+
+                starColor = `rgb(${red}, ${green}, ${blue})`;
+            });
+
+            initStars();
+            animate();
+            typewriteText(messages[messageIndex++]);
+        });
+    </script>
+</body>
+</html>

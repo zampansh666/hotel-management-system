@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Example</title>
+</head>
+<body>
+    <!-- Image with inline styling and attributes -->
+    <img id="myImage" src="n12.jpg" alt="I am image"
+         height="300px" width="300px"
+         style="border: 3px solid black;"
+         title="I am image">
+    
+    <!-- JavaScript code to handle image click event -->
+    <script>
+        // Get the image element by its ID
+        var image = document.getElementById('myImage');
+
+        // Add a click event listener to the image
+        image.addEventListener('click', function() {
+            alert('I am an image in the webpage');
+        });
+    </script>
+</body>
+</html>

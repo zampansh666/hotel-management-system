@@ -1,0 +1,10 @@
+/* styles.css */
+body {
+    font-size: 77pt;  /* Setting the font size to 77 points */
+    color: green;     /* Default text color is green */
+    background-color: red; /* Background color of the webpage */
+}
+
+.clicked {
+    color: blue;  /* New text color when clicked */
+}

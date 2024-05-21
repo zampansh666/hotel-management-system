@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sun Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1e1e1e; /* Dark background to emphasize the sun */
+        }
+        .sun {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle closest-side, #ffec61 0%, #ffae34 70%, transparent 70%);
+            border-radius: 50%;
+            transition: background 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="sun" id="sun"></div>
+    <script>
+        const sun = document.getElementById('sun');
+        sun.addEventListener('mouseover', function() {
+            sun.style.background = 'radial-gradient(circle closest-side, #fff5c0 0%, #ffc165 70%, transparent 70%)';
+        });
+        sun.addEventListener('mouseout', function() {
+            sun.style.background = 'radial-gradient(circle closest-side, #ffec61 0%, #ffae34 70%, transparent 70%)';
+        });
+    </script>
+</body>
+</html>

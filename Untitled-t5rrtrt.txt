@@ -1,0 +1,4 @@
+ else if (section === 'Products') {
+                content.innerHTML = `<h2>Our Products</h2><p>We offer a wide range of innovative tech solutions designed to enhance business efficiency...</p><ul><li>Product A - An innovative solution...</li><li>Product B - Advanced analytics tools...</li><li>Product C - Cloud-based integration...</li></ul><p>Explore our products to find the perfect solution for your business needs.</p>`;
+            }
+}

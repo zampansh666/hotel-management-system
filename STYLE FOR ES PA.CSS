@@ -1,0 +1,144 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+header, footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px; /* Hide sidebar initially */
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 20px;
+    transition: 0.3s; /* Smooth transition for sidebar */
+}
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+}
+.sidebar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.main-content {
+    transition: margin-left 0.3s; /* Smooth transition for content margin */
+    padding: 20px;
+}
+.btn-toggle {
+    background-color: lightblue;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+.sidebar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.main-content {
+    margin-left: 200px; /* Same as sidebar width */
+    padding: 20px;
+}
+.main-content h2 {
+    color: #333;
+}
+.container {
+    margin-top: 20px;
+}
+
+
+/* Header styles with animation */
+header {
+background: #333;
+color: #fff;
+padding: 10px 20px;
+text-align: center;
+animation: slideDown 0.5s ease-out forwards;
+}
+
+header nav ul {
+list-style: none;
+padding: 0;
+}
+
+header nav ul li {
+display: inline;
+margin-right: 10px;
+}
+
+header nav ul li a {
+color: #fff;
+text-decoration: none;
+}
+
+/* Section styling with animation */
+section {
+padding: 20px;
+margin-top: 10px;
+opacity: 0;
+transform: translateY(20px);
+animation: fadeInUp 0.5s ease-out 0.5s forwards;
+}
+
+/* Project class styling */
+.project {
+background: white;
+padding: 10px;
+margin-top: 5px;
+}
+
+/* Footer styling */
+footer {
+text-align: center;
+padding: 10px 20px;
+background: #333;
+color: #fff;
+}
+
+/* Keyframes for animations */
+@keyframes slideDown {
+from {
+opacity: 0;
+transform: translateY(-100px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+header nav ul {
+text-align: center;
+}
+header nav ul li {
+display: block;
+margin-bottom: 10px;
+}
+}
